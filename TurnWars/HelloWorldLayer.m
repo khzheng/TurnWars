@@ -6,14 +6,18 @@
 //  Copyright __MyCompanyName__ 2016. All rights reserved.
 //
 
-
-// Import the interfaces
 #import "HelloWorldLayer.h"
-
-// Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
+#import "TileData.h"
 
-#pragma mark - HelloWorldLayer
+@interface HelloWorldLayer()
+
+@property (nonatomic, strong) CCTMXTiledMap *tileMap;
+@property (nonatomic, strong) CCTMXLayer *bgLayer;
+@property (nonatomic, strong) CCTMXLayer *objectLayer;
+@property (nonatomic, strong) NSMutableArray *tileDataArray;
+
+@end
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -34,87 +38,44 @@
 	return scene;
 }
 
-// on "init" you need to initialize your instance
--(id) init
-{
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super init]) ) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
-		
-		
-		
-		//
-		// Leaderboards and Achievements
-		//
-		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-			achivementViewController.achievementDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achivementViewController animated:YES];
-			
-		}
-									   ];
-
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-		}
-									   ];
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
-
-	}
-	return self;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.isTouchEnabled = YES;
+        
+        [self createTileMap];
+    }
+    
+    return self;
 }
 
-// on "dealloc" you need to release all your retained objects
-
-#pragma mark GameKit delegate
-
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+- (void)createTileMap {
+    // create map
+    self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"StageMap.tmx"];
+    [self addChild:self.tileMap];
+    
+    // get bg layer
+    self.bgLayer = [self.tileMap layerNamed:@"Background"];
+    
+    // get info for each tile in bg layer
+    self.tileDataArray = [NSMutableArray array];
+    for (int i = 0; i < self.tileMap.mapSize.height; i++) {
+        for (int j = 0; j < self.tileMap.mapSize.width; j++) {
+            int movementCost = 1;
+            NSString *tileType = nil;
+            int tileGID = [self.bgLayer tileGIDAt:ccp(j, i)];
+            if (tileGID) {
+                NSDictionary *properties = [self.tileMap propertiesForGID:tileGID];
+                if (properties) {
+                    movementCost = [properties[@"MovementCost"] intValue];
+                    tileType = properties[@"TileType"];
+                }
+            }
+            
+            TileData *tileData = [TileData nodeWithGame:self movementCost:movementCost position:ccp(j, i) tileType:tileType];
+            [self.tileDataArray addObject:tileData];
+        }
+    }
 }
 
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
 @end
