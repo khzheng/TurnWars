@@ -170,6 +170,39 @@
 		EBC0489C1D8DE13E0060CA8B /* water_12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0487A1D8DE13E0060CA8B /* water_12@2x.png */; };
 		EBC0489D1D8DE13E0060CA8B /* water_13.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0487B1D8DE13E0060CA8B /* water_13.png */; };
 		EBC0489E1D8DE13E0060CA8B /* water_13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0487C1D8DE13E0060CA8B /* water_13@2x.png */; };
+		EBC048A21D8DE4460060CA8B /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC048A11D8DE4460060CA8B /* Unit.m */; };
+		EBC048A71D8DE9E40060CA8B /* Unit_Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC048A61D8DE9E40060CA8B /* Unit_Soldier.m */; };
+		EBC048AA1D8DEB4C0060CA8B /* Unit_Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC048A91D8DEB4C0060CA8B /* Unit_Tank.m */; };
+		EBC048AD1D8DEBA60060CA8B /* Unit_Cannon.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC048AC1D8DEBA60060CA8B /* Unit_Cannon.m */; };
+		EBC048B01D8DEBD70060CA8B /* Unit_Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC048AF1D8DEBD70060CA8B /* Unit_Helicopter.m */; };
+		EBC048C11D8DED7D0060CA8B /* Cannon_P1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B11D8DED7D0060CA8B /* Cannon_P1-hd.png */; };
+		EBC048C21D8DED7D0060CA8B /* Cannon_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B21D8DED7D0060CA8B /* Cannon_P1.png */; };
+		EBC048C31D8DED7D0060CA8B /* Cannon_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B31D8DED7D0060CA8B /* Cannon_P2-hd.png */; };
+		EBC048C41D8DED7D0060CA8B /* Cannon_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B41D8DED7D0060CA8B /* Cannon_P2.png */; };
+		EBC048C51D8DED7D0060CA8B /* Helicopter_P1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B51D8DED7D0060CA8B /* Helicopter_P1-hd.png */; };
+		EBC048C61D8DED7D0060CA8B /* Helicopter_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B61D8DED7D0060CA8B /* Helicopter_P1.png */; };
+		EBC048C71D8DED7D0060CA8B /* Helicopter_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B71D8DED7D0060CA8B /* Helicopter_P2-hd.png */; };
+		EBC048C81D8DED7D0060CA8B /* Helicopter_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B81D8DED7D0060CA8B /* Helicopter_P2.png */; };
+		EBC048C91D8DED7D0060CA8B /* Soldier_P1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048B91D8DED7D0060CA8B /* Soldier_P1-hd.png */; };
+		EBC048CA1D8DED7D0060CA8B /* Soldier_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048BA1D8DED7D0060CA8B /* Soldier_P1.png */; };
+		EBC048CB1D8DED7D0060CA8B /* Soldier_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048BB1D8DED7D0060CA8B /* Soldier_P2-hd.png */; };
+		EBC048CC1D8DED7D0060CA8B /* Soldier_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048BC1D8DED7D0060CA8B /* Soldier_P2.png */; };
+		EBC048CD1D8DED7D0060CA8B /* Tank_P1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048BD1D8DED7D0060CA8B /* Tank_P1-hd.png */; };
+		EBC048CE1D8DED7D0060CA8B /* Tank_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048BE1D8DED7D0060CA8B /* Tank_P1.png */; };
+		EBC048CF1D8DED7D0060CA8B /* Tank_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048BF1D8DED7D0060CA8B /* Tank_P2-hd.png */; };
+		EBC048D01D8DED7D0060CA8B /* Tank_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048C01D8DED7D0060CA8B /* Tank_P2.png */; };
+		EBC048DE1D8DED9E0060CA8B /* Font_dark_size12-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D21D8DED9E0060CA8B /* Font_dark_size12-hd.fnt */; };
+		EBC048DF1D8DED9E0060CA8B /* Font_dark_size12-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D31D8DED9E0060CA8B /* Font_dark_size12-hd.png */; };
+		EBC048E01D8DED9E0060CA8B /* Font_dark_size12.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D41D8DED9E0060CA8B /* Font_dark_size12.fnt */; };
+		EBC048E11D8DED9E0060CA8B /* Font_dark_size12.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D51D8DED9E0060CA8B /* Font_dark_size12.png */; };
+		EBC048E21D8DED9E0060CA8B /* Font_dark_size15-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D61D8DED9E0060CA8B /* Font_dark_size15-hd.fnt */; };
+		EBC048E31D8DED9E0060CA8B /* Font_dark_size15-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D71D8DED9E0060CA8B /* Font_dark_size15-hd.png */; };
+		EBC048E41D8DED9E0060CA8B /* Font_dark_size15.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D81D8DED9E0060CA8B /* Font_dark_size15.fnt */; };
+		EBC048E51D8DED9E0060CA8B /* Font_dark_size15.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048D91D8DED9E0060CA8B /* Font_dark_size15.png */; };
+		EBC048E61D8DED9E0060CA8B /* Font_silver_size17-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DA1D8DED9E0060CA8B /* Font_silver_size17-hd.fnt */; };
+		EBC048E71D8DED9E0060CA8B /* Font_silver_size17-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DB1D8DED9E0060CA8B /* Font_silver_size17-hd.png */; };
+		EBC048E81D8DED9E0060CA8B /* Font_silver_size17.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DC1D8DED9E0060CA8B /* Font_silver_size17.fnt */; };
+		EBC048E91D8DED9E0060CA8B /* Font_silver_size17.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DD1D8DED9E0060CA8B /* Font_silver_size17.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -473,6 +506,45 @@
 		EBC0487A1D8DE13E0060CA8B /* water_12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "water_12@2x.png"; sourceTree = "<group>"; };
 		EBC0487B1D8DE13E0060CA8B /* water_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water_13.png; sourceTree = "<group>"; };
 		EBC0487C1D8DE13E0060CA8B /* water_13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "water_13@2x.png"; sourceTree = "<group>"; };
+		EBC048A01D8DE4460060CA8B /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		EBC048A11D8DE4460060CA8B /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
+		EBC048A41D8DE6070060CA8B /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		EBC048A51D8DE9E40060CA8B /* Unit_Soldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit_Soldier.h; sourceTree = "<group>"; };
+		EBC048A61D8DE9E40060CA8B /* Unit_Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit_Soldier.m; sourceTree = "<group>"; };
+		EBC048A81D8DEB4C0060CA8B /* Unit_Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit_Tank.h; sourceTree = "<group>"; };
+		EBC048A91D8DEB4C0060CA8B /* Unit_Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit_Tank.m; sourceTree = "<group>"; };
+		EBC048AB1D8DEBA60060CA8B /* Unit_Cannon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit_Cannon.h; sourceTree = "<group>"; };
+		EBC048AC1D8DEBA60060CA8B /* Unit_Cannon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit_Cannon.m; sourceTree = "<group>"; };
+		EBC048AE1D8DEBD70060CA8B /* Unit_Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit_Helicopter.h; sourceTree = "<group>"; };
+		EBC048AF1D8DEBD70060CA8B /* Unit_Helicopter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit_Helicopter.m; sourceTree = "<group>"; };
+		EBC048B11D8DED7D0060CA8B /* Cannon_P1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cannon_P1-hd.png"; sourceTree = "<group>"; };
+		EBC048B21D8DED7D0060CA8B /* Cannon_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cannon_P1.png; sourceTree = "<group>"; };
+		EBC048B31D8DED7D0060CA8B /* Cannon_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cannon_P2-hd.png"; sourceTree = "<group>"; };
+		EBC048B41D8DED7D0060CA8B /* Cannon_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cannon_P2.png; sourceTree = "<group>"; };
+		EBC048B51D8DED7D0060CA8B /* Helicopter_P1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Helicopter_P1-hd.png"; sourceTree = "<group>"; };
+		EBC048B61D8DED7D0060CA8B /* Helicopter_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Helicopter_P1.png; sourceTree = "<group>"; };
+		EBC048B71D8DED7D0060CA8B /* Helicopter_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Helicopter_P2-hd.png"; sourceTree = "<group>"; };
+		EBC048B81D8DED7D0060CA8B /* Helicopter_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Helicopter_P2.png; sourceTree = "<group>"; };
+		EBC048B91D8DED7D0060CA8B /* Soldier_P1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Soldier_P1-hd.png"; sourceTree = "<group>"; };
+		EBC048BA1D8DED7D0060CA8B /* Soldier_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soldier_P1.png; sourceTree = "<group>"; };
+		EBC048BB1D8DED7D0060CA8B /* Soldier_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Soldier_P2-hd.png"; sourceTree = "<group>"; };
+		EBC048BC1D8DED7D0060CA8B /* Soldier_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soldier_P2.png; sourceTree = "<group>"; };
+		EBC048BD1D8DED7D0060CA8B /* Tank_P1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank_P1-hd.png"; sourceTree = "<group>"; };
+		EBC048BE1D8DED7D0060CA8B /* Tank_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P1.png; sourceTree = "<group>"; };
+		EBC048BF1D8DED7D0060CA8B /* Tank_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank_P2-hd.png"; sourceTree = "<group>"; };
+		EBC048C01D8DED7D0060CA8B /* Tank_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P2.png; sourceTree = "<group>"; };
+		EBC048D21D8DED9E0060CA8B /* Font_dark_size12-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Font_dark_size12-hd.fnt"; sourceTree = "<group>"; };
+		EBC048D31D8DED9E0060CA8B /* Font_dark_size12-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Font_dark_size12-hd.png"; sourceTree = "<group>"; };
+		EBC048D41D8DED9E0060CA8B /* Font_dark_size12.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Font_dark_size12.fnt; sourceTree = "<group>"; };
+		EBC048D51D8DED9E0060CA8B /* Font_dark_size12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Font_dark_size12.png; sourceTree = "<group>"; };
+		EBC048D61D8DED9E0060CA8B /* Font_dark_size15-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Font_dark_size15-hd.fnt"; sourceTree = "<group>"; };
+		EBC048D71D8DED9E0060CA8B /* Font_dark_size15-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Font_dark_size15-hd.png"; sourceTree = "<group>"; };
+		EBC048D81D8DED9E0060CA8B /* Font_dark_size15.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Font_dark_size15.fnt; sourceTree = "<group>"; };
+		EBC048D91D8DED9E0060CA8B /* Font_dark_size15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Font_dark_size15.png; sourceTree = "<group>"; };
+		EBC048DA1D8DED9E0060CA8B /* Font_silver_size17-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Font_silver_size17-hd.fnt"; sourceTree = "<group>"; };
+		EBC048DB1D8DED9E0060CA8B /* Font_silver_size17-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Font_silver_size17-hd.png"; sourceTree = "<group>"; };
+		EBC048DC1D8DED9E0060CA8B /* Font_silver_size17.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Font_silver_size17.fnt; sourceTree = "<group>"; };
+		EBC048DD1D8DED9E0060CA8B /* Font_silver_size17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Font_silver_size17.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,8 +612,19 @@
 				EBC046CF1D8DDB740060CA8B /* Resources */,
 				EBC046E91D8DDB740060CA8B /* libs */,
 				EBC048421D8DDB750060CA8B /* Supporting Files */,
+				EBC048A41D8DE6070060CA8B /* GameConfig.h */,
 				EBC048541D8DDD2C0060CA8B /* TileData.h */,
 				EBC048551D8DDD2C0060CA8B /* TileData.m */,
+				EBC048A01D8DE4460060CA8B /* Unit.h */,
+				EBC048A11D8DE4460060CA8B /* Unit.m */,
+				EBC048A51D8DE9E40060CA8B /* Unit_Soldier.h */,
+				EBC048A61D8DE9E40060CA8B /* Unit_Soldier.m */,
+				EBC048A81D8DEB4C0060CA8B /* Unit_Tank.h */,
+				EBC048A91D8DEB4C0060CA8B /* Unit_Tank.m */,
+				EBC048AB1D8DEBA60060CA8B /* Unit_Cannon.h */,
+				EBC048AC1D8DEBA60060CA8B /* Unit_Cannon.m */,
+				EBC048AE1D8DEBD70060CA8B /* Unit_Helicopter.h */,
+				EBC048AF1D8DEBD70060CA8B /* Unit_Helicopter.m */,
 			);
 			path = TurnWars;
 			sourceTree = "<group>";
@@ -564,6 +647,8 @@
 				EBC046E41D8DDB740060CA8B /* Icon@2x.png */,
 				EBC046E61D8DDB740060CA8B /* Info.plist */,
 				EBC046E71D8DDB740060CA8B /* iTunesArtwork */,
+				EBC048EA1D8DEDA50060CA8B /* Fonts */,
+				EBC048D11D8DED860060CA8B /* Units */,
 				EBC0489F1D8DE1570060CA8B /* Tiles */,
 			);
 			name = Resources;
@@ -953,6 +1038,48 @@
 			name = Tiles;
 			sourceTree = "<group>";
 		};
+		EBC048D11D8DED860060CA8B /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				EBC048B11D8DED7D0060CA8B /* Cannon_P1-hd.png */,
+				EBC048B21D8DED7D0060CA8B /* Cannon_P1.png */,
+				EBC048B31D8DED7D0060CA8B /* Cannon_P2-hd.png */,
+				EBC048B41D8DED7D0060CA8B /* Cannon_P2.png */,
+				EBC048B51D8DED7D0060CA8B /* Helicopter_P1-hd.png */,
+				EBC048B61D8DED7D0060CA8B /* Helicopter_P1.png */,
+				EBC048B71D8DED7D0060CA8B /* Helicopter_P2-hd.png */,
+				EBC048B81D8DED7D0060CA8B /* Helicopter_P2.png */,
+				EBC048B91D8DED7D0060CA8B /* Soldier_P1-hd.png */,
+				EBC048BA1D8DED7D0060CA8B /* Soldier_P1.png */,
+				EBC048BB1D8DED7D0060CA8B /* Soldier_P2-hd.png */,
+				EBC048BC1D8DED7D0060CA8B /* Soldier_P2.png */,
+				EBC048BD1D8DED7D0060CA8B /* Tank_P1-hd.png */,
+				EBC048BE1D8DED7D0060CA8B /* Tank_P1.png */,
+				EBC048BF1D8DED7D0060CA8B /* Tank_P2-hd.png */,
+				EBC048C01D8DED7D0060CA8B /* Tank_P2.png */,
+			);
+			name = Units;
+			sourceTree = "<group>";
+		};
+		EBC048EA1D8DEDA50060CA8B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EBC048D21D8DED9E0060CA8B /* Font_dark_size12-hd.fnt */,
+				EBC048D31D8DED9E0060CA8B /* Font_dark_size12-hd.png */,
+				EBC048D41D8DED9E0060CA8B /* Font_dark_size12.fnt */,
+				EBC048D51D8DED9E0060CA8B /* Font_dark_size12.png */,
+				EBC048D61D8DED9E0060CA8B /* Font_dark_size15-hd.fnt */,
+				EBC048D71D8DED9E0060CA8B /* Font_dark_size15-hd.png */,
+				EBC048D81D8DED9E0060CA8B /* Font_dark_size15.fnt */,
+				EBC048D91D8DED9E0060CA8B /* Font_dark_size15.png */,
+				EBC048DA1D8DED9E0060CA8B /* Font_silver_size17-hd.fnt */,
+				EBC048DB1D8DED9E0060CA8B /* Font_silver_size17-hd.png */,
+				EBC048DC1D8DED9E0060CA8B /* Font_silver_size17.fnt */,
+				EBC048DD1D8DED9E0060CA8B /* Font_silver_size17.png */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1009,8 +1136,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC046DF1D8DDB740060CA8B /* Icon-Small.png in Resources */,
+				EBC048C21D8DED7D0060CA8B /* Cannon_P1.png in Resources */,
 				EBC046D31D8DDB740060CA8B /* Default-Landscape~ipad.png in Resources */,
 				EBC046E31D8DDB740060CA8B /* Icon.png in Resources */,
+				EBC048E21D8DED9E0060CA8B /* Font_dark_size15-hd.fnt in Resources */,
 				EBC048871D8DE13E0060CA8B /* water_02.png in Resources */,
 				EBC046DD1D8DDB740060CA8B /* Icon-Small-50.png in Resources */,
 				EBC0485A1D8DE0B10060CA8B /* StageMap.tmx in Resources */,
@@ -1019,32 +1148,55 @@
 				EBC046E11D8DDB740060CA8B /* Icon-Small@2x.png in Resources */,
 				EBC048801D8DE13E0060CA8B /* mountain@2x.png in Resources */,
 				EBC048961D8DE13E0060CA8B /* water_09@2x.png in Resources */,
+				EBC048CB1D8DED7D0060CA8B /* Soldier_P2-hd.png in Resources */,
 				EBC048831D8DE13E0060CA8B /* trees.png in Resources */,
+				EBC048E91D8DED9E0060CA8B /* Font_silver_size17.png in Resources */,
 				EBC0488C1D8DE13E0060CA8B /* water_04@2x.png in Resources */,
+				EBC048C31D8DED7D0060CA8B /* Cannon_P2-hd.png in Resources */,
+				EBC048C11D8DED7D0060CA8B /* Cannon_P1-hd.png in Resources */,
+				EBC048D01D8DED7D0060CA8B /* Tank_P2.png in Resources */,
 				EBC046E51D8DDB740060CA8B /* Icon@2x.png in Resources */,
+				EBC048DF1D8DED9E0060CA8B /* Font_dark_size12-hd.png in Resources */,
 				EBC046D11D8DDB740060CA8B /* Default.png in Resources */,
 				EBC048851D8DE13E0060CA8B /* water_01.png in Resources */,
 				EBC048971D8DE13E0060CA8B /* water_10.png in Resources */,
 				EBC0488E1D8DE13E0060CA8B /* water_05@2x.png in Resources */,
 				EBC0489C1D8DE13E0060CA8B /* water_12@2x.png in Resources */,
 				EBC048981D8DE13E0060CA8B /* water_10@2x.png in Resources */,
+				EBC048CC1D8DED7D0060CA8B /* Soldier_P2.png in Resources */,
+				EBC048E71D8DED9E0060CA8B /* Font_silver_size17-hd.png in Resources */,
+				EBC048C91D8DED7D0060CA8B /* Soldier_P1-hd.png in Resources */,
 				EBC048911D8DE13E0060CA8B /* water_07.png in Resources */,
 				EBC048941D8DE13E0060CA8B /* water_08@2x.png in Resources */,
+				EBC048E61D8DED9E0060CA8B /* Font_silver_size17-hd.fnt in Resources */,
 				EBC048951D8DE13E0060CA8B /* water_09.png in Resources */,
+				EBC048E51D8DED9E0060CA8B /* Font_dark_size15.png in Resources */,
+				EBC048E31D8DED9E0060CA8B /* Font_dark_size15-hd.png in Resources */,
 				EBC048811D8DE13E0060CA8B /* TileLayer_background-hd.png in Resources */,
+				EBC048C61D8DED7D0060CA8B /* Helicopter_P1.png in Resources */,
 				EBC0488B1D8DE13E0060CA8B /* water_04.png in Resources */,
 				EBC0489A1D8DE13E0060CA8B /* water_11@2x.png in Resources */,
 				EBC048931D8DE13E0060CA8B /* water_08.png in Resources */,
+				EBC048CD1D8DED7D0060CA8B /* Tank_P1-hd.png in Resources */,
 				EBC046E81D8DDB740060CA8B /* iTunesArtwork in Resources */,
+				EBC048C71D8DED7D0060CA8B /* Helicopter_P2-hd.png in Resources */,
+				EBC048C51D8DED7D0060CA8B /* Helicopter_P1-hd.png in Resources */,
 				EBC048261D8DDB750060CA8B /* ChangeLog in Resources */,
 				EBC048991D8DE13E0060CA8B /* water_11.png in Resources */,
 				EBC0488A1D8DE13E0060CA8B /* water_03@2x.png in Resources */,
+				EBC048CF1D8DED7D0060CA8B /* Tank_P2-hd.png in Resources */,
+				EBC048DE1D8DED9E0060CA8B /* Font_dark_size12-hd.fnt in Resources */,
+				EBC048C41D8DED7D0060CA8B /* Cannon_P2.png in Resources */,
 				EBC0489E1D8DE13E0060CA8B /* water_13@2x.png in Resources */,
+				EBC048E01D8DED9E0060CA8B /* Font_dark_size12.fnt in Resources */,
+				EBC048E41D8DED9E0060CA8B /* Font_dark_size15.fnt in Resources */,
 				EBC046D91D8DDB740060CA8B /* fps_images-ipadhd.png in Resources */,
 				EBC046D51D8DDB740060CA8B /* fps_images.png in Resources */,
 				EBC0489B1D8DE13E0060CA8B /* water_12.png in Resources */,
 				EBC048921D8DE13E0060CA8B /* water_07@2x.png in Resources */,
 				EBC048881D8DE13E0060CA8B /* water_02@2x.png in Resources */,
+				EBC048E11D8DED9E0060CA8B /* Font_dark_size12.png in Resources */,
+				EBC048CE1D8DED7D0060CA8B /* Tank_P1.png in Resources */,
 				EBC0487F1D8DE13E0060CA8B /* mountain.png in Resources */,
 				EBC0489D1D8DE13E0060CA8B /* water_13.png in Resources */,
 				EBC0487D1D8DE13E0060CA8B /* grass.png in Resources */,
@@ -1053,10 +1205,13 @@
 				EBC0488F1D8DE13E0060CA8B /* water_06.png in Resources */,
 				EBC048821D8DE13E0060CA8B /* TileLayer_background.png in Resources */,
 				EBC0487E1D8DE13E0060CA8B /* grass@2x.png in Resources */,
+				EBC048E81D8DED9E0060CA8B /* Font_silver_size17.fnt in Resources */,
 				EBC048891D8DE13E0060CA8B /* water_03.png in Resources */,
 				EBC048861D8DE13E0060CA8B /* water_01@2x.png in Resources */,
 				EBC048591D8DE0B10060CA8B /* StageMap-hd.tmx in Resources */,
+				EBC048CA1D8DED7D0060CA8B /* Soldier_P1.png in Resources */,
 				EBC048841D8DE13E0060CA8B /* trees@2x.png in Resources */,
+				EBC048C81D8DED7D0060CA8B /* Helicopter_P2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1093,6 +1248,7 @@
 				EBC046F01D8DDB740060CA8B /* CCActionCamera.m in Sources */,
 				EBC046F91D8DDB740060CA8B /* CCActionGrid.m in Sources */,
 				EBC047A81D8DDB750060CA8B /* CCTMXXMLParser.m in Sources */,
+				EBC048A71D8DE9E40060CA8B /* Unit_Soldier.m in Sources */,
 				EBC0470B1D8DDB740060CA8B /* CCActionProgressTimer.m in Sources */,
 				EBC0475B1D8DDB740060CA8B /* CCParticleExamples.m in Sources */,
 				EBC047DA1D8DDB750060CA8B /* base64.c in Sources */,
@@ -1112,9 +1268,11 @@
 				EBC047521D8DDB740060CA8B /* CCNode.m in Sources */,
 				EBC047581D8DDB740060CA8B /* CCParticleBatchNode.m in Sources */,
 				EBC047CE1D8DDB750060CA8B /* CCDirectorMac.m in Sources */,
+				EBC048AD1D8DEBA60060CA8B /* Unit_Cannon.m in Sources */,
 				EBC047D71D8DDB750060CA8B /* CCWindow.m in Sources */,
 				EBC048401D8DDB750060CA8B /* vec4.c in Sources */,
 				EBC0475E1D8DDB740060CA8B /* CCParticleSystem.m in Sources */,
+				EBC048B01D8DEBD70060CA8B /* Unit_Helicopter.m in Sources */,
 				EBC047871D8DDB740060CA8B /* CCSpriteBatchNode.m in Sources */,
 				EBC047841D8DDB740060CA8B /* CCSprite.m in Sources */,
 				EBC047ED1D8DDB750060CA8B /* CCVertex.m in Sources */,
@@ -1166,12 +1324,14 @@
 				EBC0477E1D8DDB740060CA8B /* CCShaderCache.m in Sources */,
 				EBC0472D1D8DDB740060CA8B /* CCGLProgram.m in Sources */,
 				EBC047F71D8DDB750060CA8B /* TGAlib.m in Sources */,
+				EBC048A21D8DE4460060CA8B /* Unit.m in Sources */,
 				EBC047AE1D8DDB750060CA8B /* CCTransitionPageTurn.m in Sources */,
 				EBC047F31D8DDB750060CA8B /* NSThread+performBlock.m in Sources */,
 				EBC047FA1D8DDB750060CA8B /* TransformUtils.m in Sources */,
 				EBC047171D8DDB740060CA8B /* CCAnimationCache.m in Sources */,
 				EBC047391D8DDB740060CA8B /* CCLabelAtlas.m in Sources */,
 				EBC0472A1D8DDB740060CA8B /* CCDrawingPrimitives.m in Sources */,
+				EBC048AA1D8DEB4C0060CA8B /* Unit_Tank.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

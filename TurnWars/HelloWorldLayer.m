@@ -8,6 +8,8 @@
 
 #import "HelloWorldLayer.h"
 #import "AppDelegate.h"
+#import "GameConfig.h"
+#import "Unit.h"
 #import "TileData.h"
 
 @interface HelloWorldLayer()
@@ -44,6 +46,12 @@
         self.isTouchEnabled = YES;
         
         [self createTileMap];
+        
+        // load units
+        self.p1Units = [NSMutableArray array];
+        self.p2Units = [NSMutableArray array];
+        [self loadUnits:1];
+        [self loadUnits:2];
     }
     
     return self;
@@ -76,6 +84,89 @@
             [self.tileDataArray addObject:tileData];
         }
     }
+}
+
+- (void)loadUnits:(int)player {
+    // get layer based on player number
+    CCTMXObjectGroup *unitsObjectGroup = [self.tileMap objectGroupNamed:[NSString stringWithFormat:@"Units_P%d", player]];
+    NSMutableArray *units = nil;
+    if (player == 1)
+        units = self.p1Units;
+    else if (player == 2)
+        units = self.p2Units;
+    
+    for (NSMutableDictionary *unitDict in [unitsObjectGroup objects]) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:unitDict];
+        NSString *unitType = dict[@"Type"];
+        NSString *className = [NSString stringWithFormat:@"Unit_%@", unitType];
+        Class aClass = NSClassFromString(className);
+        Unit *unit = [aClass nodeWithGame:self tileDict:dict owner:player];
+        [units addObject:unit];
+    }
+}
+
+#pragma mark - Helper
+
+// Get the scale for a sprite - 1 for normal display, 2 for retina
+-(int)spriteScale {
+    if (IS_HD)
+        return 2;
+    else
+        return 1;
+}
+
+// Get the height for a tile based on the display type (retina or SD)
+-(int)getTileHeightForRetina {
+    if (IS_HD)
+        return TILE_HEIGHT_HD;
+    else
+        return TILE_HEIGHT;
+}
+
+// Return tile coordinates (in rows and columns) for a given position
+-(CGPoint)tileCoordForPosition:(CGPoint)position {
+    CGSize tileSize = CGSizeMake(self.tileMap.tileSize.width, self.tileMap.tileSize.height);
+    if (IS_HD) {
+        tileSize = CGSizeMake(self.tileMap.tileSize.width/2, self.tileMap.tileSize.height/2);
+    }
+    int x = position.x / tileSize.width;
+    int y = ((self.tileMap.mapSize.height * tileSize.height) - position.y) / tileSize.height;
+    return ccp(x, y);
+}
+
+// Return the position for a tile based on its row and column
+-(CGPoint)positionForTileCoord:(CGPoint)position {
+    CGSize tileSize = CGSizeMake(self.tileMap.tileSize.width, self.tileMap.tileSize.height);
+    if (IS_HD) {
+        tileSize = CGSizeMake(self.tileMap.tileSize.width/2, self.tileMap.tileSize.height/2);
+    }
+    int x = position.x * tileSize.width + tileSize.width/2;
+    int y = (self.tileMap.mapSize.height - position.y) * tileSize.height - tileSize.height/2;
+    return ccp(x, y);
+}
+
+// Get the surrounding tiles (above, below, to the left, and right) of a given tile based on its row and column
+-(NSMutableArray *)getTilesNextToTile:(CGPoint)tileCoord {
+    NSMutableArray * tiles = [NSMutableArray arrayWithCapacity:4];
+    if (tileCoord.y+1<self.tileMap.mapSize.height)
+        [tiles addObject:[NSValue valueWithCGPoint:ccp(tileCoord.x,tileCoord.y+1)]];
+    if (tileCoord.x+1<self.tileMap.mapSize.width)
+        [tiles addObject:[NSValue valueWithCGPoint:ccp(tileCoord.x+1,tileCoord.y)]];
+    if (tileCoord.y-1>=0)
+        [tiles addObject:[NSValue valueWithCGPoint:ccp(tileCoord.x,tileCoord.y-1)]];
+    if (tileCoord.x-1>=0)
+        [tiles addObject:[NSValue valueWithCGPoint:ccp(tileCoord.x-1,tileCoord.y)]];
+    return tiles;
+}
+
+// Get the TileData for a tile at a given position
+-(TileData *)getTileData:(CGPoint)tileCoord {
+    for (TileData * td in self.tileDataArray) {
+        if (CGPointEqualToPoint(td.position, tileCoord)) {
+            return td;
+        }
+    }
+    return nil;
 }
 
 @end
