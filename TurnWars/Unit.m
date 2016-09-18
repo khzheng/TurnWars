@@ -72,6 +72,10 @@
 }
 
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    // Was a unit belonging to the non-active player touched? If yes, do not handle the touch
+    if (([self.gameLayer.p1Units containsObject:self] && self.gameLayer.playerTurn == 2) || ([self.gameLayer.p2Units containsObject:self] && self.gameLayer.playerTurn == 1))
+        return NO;
+    
     // If the action menu is showing, do not handle any touches on unit
     if (self.gameLayer.actionsMenu)
         return NO;
@@ -342,6 +346,16 @@
     // Move back to the previous tile
     self.unitSprite.position = [self.gameLayer positionForTileCoord:self.tileDataBeforeMovement.tilePosition];
     [self.gameLayer unselectUnit];
+}
+
+// Activate this unit for play
+- (void)startTurn {
+    // Mark the unit as not having moved for this turn
+    self.movedThisTurn = NO;
+    // Mark the unit as not having attacked this turn
+    self.attackedThisTurn = NO;
+    // Change the unit overlay colour from gray (inactive) to white (active)
+    [self.unitSprite setColor:ccWHITE];
 }
 
 @end

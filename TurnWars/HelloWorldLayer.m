@@ -51,6 +51,9 @@
         self.p2Units = [NSMutableArray array];
         [self loadUnits:1];
         [self loadUnits:2];
+        
+        _playerTurn = 1;
+        [self addMenu];
     }
     
     return self;
@@ -288,6 +291,93 @@
     self.contextMenuBg = nil;
     [self.actionsMenu.parent removeChild:self.actionsMenu cleanup:YES];
     self.actionsMenu = nil;
+}
+
+// Add the user turn menu
+-(void)addMenu {
+    // Get window size
+    CGSize wins = [[CCDirector sharedDirector] winSize];
+    // Set up the menu background and position
+    CCSprite * hud = [CCSprite spriteWithFile:@"uiBar.png"];
+    [self addChild:hud];
+    [hud setPosition:ccp(wins.width/2,wins.height-[hud boundingBox].size.height/2)];
+    // Set up the label showing the turn
+    self.turnLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"Player %d's turn", self.playerTurn] fntFile:@"Font_dark_size15.fnt"];
+    [self addChild:self.turnLabel];
+    [self.turnLabel setPosition:ccp([self.turnLabel boundingBox].size.width/2 + 5,wins.height-[hud boundingBox].size.height/2)];
+    // Set the turn label to display the current turn
+    [self setPlayerTurnLabel];
+    // Create End Turn button
+    self.endTurnButton = [CCMenuItemImage itemFromNormalImage:@"uiBar_button.png" selectedImage:@"uiBar_button.png" target:self selector:@selector(doEndTurn)];
+    CCMenu * menu = [CCMenu menuWithItems:self.endTurnButton, nil];
+    [self addChild:menu];
+    [menu setPosition:ccp(0,0)];
+    [self.endTurnButton setPosition:ccp(wins.width - 3 - [self.endTurnButton boundingBox].size.width/2, wins.height - [self.endTurnButton boundingBox].size.height/2 - 3)];
+}
+
+// End the turn, passing control to the other player
+-(void)doEndTurn {
+    // Do not do anything if a unit is selected
+    if (self.selectedUnit)
+        return;
+    // Switch players depending on who's currently selected
+    if (self.playerTurn == 1) {
+        self.playerTurn = 2;
+    } else if (self.playerTurn == 2) {
+        self.playerTurn = 1;
+    }
+    // Do a transition to signify the end of turn
+    [self showEndTurnTransition];
+    // Set the turn label to display the current turn
+    [self setPlayerTurnLabel];
+}
+
+// Set the turn label to display the current turn
+-(void)setPlayerTurnLabel {
+    // Set the label value for the current player
+    [self.turnLabel setString:[NSString stringWithFormat:@"Player %d's turn", self.playerTurn]];
+    // Change the label colour based on the player
+    if (self.playerTurn == 1) {
+        [self.turnLabel setColor:ccRED];
+    } else if (self.playerTurn == 2) {
+        [self.turnLabel setColor:ccBLUE];
+    }
+}
+
+// Fancy transition to show turn switch/end
+-(void)showEndTurnTransition {
+    // Create a black layer
+    ccColor4B c = {0,0,0,0};
+    CCLayerColor *layer = [CCLayerColor layerWithColor:c];
+    [self addChild:layer z:20];
+    // Add a label showing the player turn to the black layer
+    CCLabelBMFont * turnLbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"Player %d's turn", self.playerTurn] fntFile:@"Font_silver_size17.fnt"];
+    [layer addChild:turnLbl];
+    [turnLbl setPosition:ccp([CCDirector sharedDirector].winSize.width/2,[CCDirector sharedDirector].winSize.height/2)];
+    // Run an action which fades in the black layer, calls the beginTurn method, fades out the black layer, and finally removes it
+    [layer runAction:[CCSequence actions:[CCFadeTo actionWithDuration:1 opacity:150],[CCCallFunc actionWithTarget:self selector:@selector(beginTurn)],[CCFadeTo actionWithDuration:1 opacity:0],[CCCallFuncN actionWithTarget:self selector:@selector(removeLayer:)], nil]];
+}
+
+// Begin the next turn
+-(void)beginTurn {
+    // Activate the units for the active player
+    if (self.playerTurn == 1) {
+        [self activateUnits:self.p2Units];
+    } else if (self.playerTurn == 2) {
+        [self activateUnits:self.p1Units];
+    }
+}
+
+// Remove the black layer added for the turn change transition
+-(void)removeLayer:(CCNode *)n {
+    [n.parent removeChild:n cleanup:YES];
+}
+
+// Activate all the units in the specified array (called from beginTurn passing the units for the active player)
+-(void)activateUnits:(NSMutableArray *)units {
+    for (Unit *unit in units) {
+        [unit startTurn];
+    }
 }
 
 @end

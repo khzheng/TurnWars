@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSMutableArray *tileDataArray;
 @property (nonatomic, strong) CCMenu *actionsMenu;
 @property (nonatomic, strong) CCSprite *contextMenuBg;
+@property (nonatomic, strong) CCMenuItemImage *endTurnButton;
+@property (nonatomic, strong) CCLabelBMFont *turnLabel;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
@@ -41,5 +43,12 @@
 - (void)unselectUnit;
 - (void)showActionsMenu:(Unit *)unit canAttack:(BOOL)canAttack;
 - (void)removeActionsMenu;
+- (void)addMenu;
+- (void)doEndTurn;
+- (void)setPlayerTurnLabel;
+- (void)showEndTurnTransition;
+- (void)beginTurn;
+- (void)removeLayer:(CCNode *)n;
+- (void)activateUnits:(NSMutableArray *)units;
 
 @end

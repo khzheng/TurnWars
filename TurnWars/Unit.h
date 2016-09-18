@@ -44,5 +44,6 @@
 - (void)constructPathAndStartAnimationFromStep:(TileData *)tile;
 - (void)popStepAndAnimate;
 - (void)doMarkedMovement:(TileData *)targetTileData;
+- (void)startTurn;
 
 @end
