@@ -18,8 +18,14 @@
 @property (nonatomic,readwrite) BOOL selectedForMovement;
 @property (nonatomic, copy) NSString *tileType;
 @property (nonatomic, weak) TileData *parentTile;
+@property (nonatomic, assign) int hScore;
+@property (nonatomic, assign) int gScore;
+@property (nonatomic, assign) int fScore;
 
 + (instancetype)nodeWithGame:(HelloWorldLayer *)gameLayer movementCost:(int)movementCost position:(CGPoint)position tileType:(NSString *)tileType;
 - (instancetype)initWithGame:(HelloWorldLayer *)gameLayer movementCost:(int)movementCost position:(CGPoint)position tileType:(NSString *)tileType;
+-(int)getGScore;
+-(int)getGScoreForAttack;
+-(int)fScore;
 
 @end

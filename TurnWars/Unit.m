@@ -8,9 +8,12 @@
 
 #import "Unit.h"
 
+#define kACTION_MOVEMENT 0
+#define kACTION_ATTACK 1
+
 @implementation Unit
 
-+ (instancetype)nodeWithGame:(HelloWorldLayer *)gameLayer tileDict:(NSDictionary *)tileDict ownder:(int)owner {
++ (instancetype)nodeWithGame:(HelloWorldLayer *)gameLayer tileDict:(NSDictionary *)tileDict owner:(int)owner {
     // virtual method - implemented in subclasses
     return nil;
 }
@@ -20,6 +23,9 @@
     if (self) {
         _state = kStateUngrabbed;
         _hp = 10;
+        _spOpenSteps = [NSMutableArray array];
+        _spClosedSteps = [NSMutableArray array];
+        _movementPath = [NSMutableArray array];
     }
     
     return self;
@@ -70,11 +76,104 @@
     if (![self containsTouchLocation:touch])
         return NO;
     self.state = kStateGrabbed;
+    
+    [self.gameLayer unselectUnit];
+    [self selectUnit];
+    
     return YES;
 }
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     self.state = kStateUngrabbed;
+}
+
+// Select this unit
+-(void)selectUnit {
+    [self.gameLayer selectUnit:self];
+    // Make the selected unit slightly bigger
+    self.unitSprite.scale = 1.2;
+    // If the unit was not moved this turn, mark it as possible to move
+    if (!self.movedThisTurn) {
+        self.selectingMovement = YES;
+        [self markPossibleAction:kACTION_MOVEMENT];
+    }
+}
+
+// Deselect this unit
+-(void)unselectUnit {
+    // Reset the sprit back to normal size
+    self.unitSprite.scale =1;
+    self.selectingMovement = NO;
+    self.selectingAttack = NO;
+    [self unMarkPossibleMovement];
+}
+
+// Remove the "possible-to-move" indicator
+-(void)unMarkPossibleMovement {
+    for (TileData * td in self.gameLayer.tileDataArray) {
+        [self.gameLayer unPaintMovementTile:td];
+        td.parentTile = nil;
+        td.selectedForMovement = NO;
+    }
+}
+
+// Carry out specified action for this unit
+-(void)markPossibleAction:(int)action {
+    // Get the tile where the unit is standing
+    CGPoint point = [self.gameLayer tileCoordForPosition:self.unitSprite.position];
+    TileData *startTileData = [self.gameLayer getTileData:point];
+    [self.spOpenSteps addObject:startTileData];
+    [self.spClosedSteps addObject:startTileData];
+    // If we are selecting movement, paint the tiles
+    if (action == kACTION_MOVEMENT) {
+        [self.gameLayer paintMovementTile:startTileData];
+    }
+    // else if(action == kACTION_ATTACK)  // You'll handle attacks later
+    int i =0;
+    // For each tile in the list, beginning with the start tile
+    do {
+        TileData * _currentTile = ((TileData *)[self.spOpenSteps objectAtIndex:i]);
+        // You get every 4 tiles surrounding the current tile
+        NSMutableArray * tiles = [self.gameLayer getTilesNextToTile:_currentTile.tilePosition];
+        for (NSValue * tileValue in tiles) {
+            TileData * _neighbourTile = [self.gameLayer getTileData:[tileValue CGPointValue]];
+            // If you already dealt with it, you ignore it.
+            if ([self.spClosedSteps containsObject:_neighbourTile]) {
+                // Ignore it
+                continue;
+            }
+            // If there is an enemy on the tile and you are moving, ignore it. You can't move there.
+            if (action == kACTION_MOVEMENT && [self.gameLayer otherEnemyUnitInTile:_neighbourTile unitOwner:self.owner]) {
+                // Ignore it
+                continue;
+            }
+            // If you are moving and this unit can't walk over that tile type, ignore it.
+            if (action == kACTION_MOVEMENT && ![self canWalkOverTile:_neighbourTile]) {
+                // Ignore it
+                continue;
+            }
+            _neighbourTile.parentTile = nil;
+            _neighbourTile.parentTile = _currentTile;
+            // If you can move over there, paint it.
+            if (action == kACTION_MOVEMENT) {
+                [self.gameLayer paintMovementTile:_neighbourTile];
+            }
+            // else if(action == kACTION_ATTACK) //You'll handle attacks later
+            // Check how much it costs to move to or attack that tile.
+            if (action == kACTION_MOVEMENT) {
+                if ([_neighbourTile getGScore]> self.movementRange) {
+                    continue;
+                }
+            } else if(action == kACTION_ATTACK) {
+                //You'll handle attacks later
+            }
+            [self.spOpenSteps addObject:_neighbourTile];
+            [self.spClosedSteps addObject:_neighbourTile];
+        }
+        i++;
+    } while (i < [self.spOpenSteps count]);
+    [self.spClosedSteps removeAllObjects];
+    [self.spOpenSteps removeAllObjects];
 }
 
 @end

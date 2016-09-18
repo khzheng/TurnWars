@@ -17,7 +17,6 @@
 @property (nonatomic, strong) CCTMXTiledMap *tileMap;
 @property (nonatomic, strong) CCTMXLayer *bgLayer;
 @property (nonatomic, strong) CCTMXLayer *objectLayer;
-@property (nonatomic, strong) NSMutableArray *tileDataArray;
 
 @end
 
@@ -66,7 +65,7 @@
     self.bgLayer = [self.tileMap layerNamed:@"Background"];
     
     // get info for each tile in bg layer
-    self.tileDataArray = [NSMutableArray array];
+    self.tileDataArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < self.tileMap.mapSize.height; i++) {
         for (int j = 0; j < self.tileMap.mapSize.width; j++) {
             int movementCost = 1;
@@ -162,11 +161,70 @@
 // Get the TileData for a tile at a given position
 -(TileData *)getTileData:(CGPoint)tileCoord {
     for (TileData * td in self.tileDataArray) {
-        if (CGPointEqualToPoint(td.position, tileCoord)) {
+        if (CGPointEqualToPoint(td.tilePosition, tileCoord)) {
             return td;
         }
     }
     return nil;
+}
+
+// Check specified tile to see if there's any other unit (from either player) in it already
+-(Unit *)otherUnitInTile:(TileData *)tile {
+    for (Unit *u in self.p1Units) {
+        if (CGPointEqualToPoint([self tileCoordForPosition:u.unitSprite.position], tile.tilePosition))
+            return u;
+    }
+    for (Unit *u in self.p2Units) {
+        if (CGPointEqualToPoint([self tileCoordForPosition:u.unitSprite.position], tile.tilePosition))
+            return u;
+    }
+    return nil;
+}
+
+// Check specified tile to see if there's an enemy unit in it already
+-(Unit *)otherEnemyUnitInTile:(TileData *)tile unitOwner:(int)owner {
+    if (owner == 1) {
+        for (Unit *u in self.p2Units) {
+            if (CGPointEqualToPoint([self tileCoordForPosition:u.unitSprite.position], tile.tilePosition))
+                return u;
+        }
+    } else if (owner == 2) {
+        for (Unit *u in self.p1Units) {
+            if (CGPointEqualToPoint([self tileCoordForPosition:u.unitSprite.position], tile.tilePosition))
+                return u;
+        }
+    }
+    return nil;
+}
+
+// Mark the specified tile for movement, if it hasn't been marked already
+-(BOOL)paintMovementTile:(TileData *)tData {
+    CCSprite *tile = [self.bgLayer tileAt:tData.tilePosition];
+    if (!tData.selectedForMovement) {
+        [tile setColor:ccBLUE];
+        tData.selectedForMovement = YES;
+        return NO;
+    }
+    return YES;
+}
+
+// Set the color of a tile back to the default color
+-(void)unPaintMovementTile:(TileData *)tileData {
+    CCSprite * tile = [self.bgLayer tileAt:tileData.tilePosition];
+    [tile setColor:ccWHITE];
+}
+
+// Select specified unit
+-(void)selectUnit:(Unit *)unit {
+    self.selectedUnit = unit;
+}
+
+// Deselect the currently selected unit
+-(void)unselectUnit {
+    if (self.selectedUnit) {
+        [self.selectedUnit unselectUnit];
+    }
+    self.selectedUnit = nil;
 }
 
 @end

@@ -28,4 +28,29 @@
     return self;
 }
 
+-(int)getGScore {
+    int parentCost = 0;
+    if (self.parentTile) {
+        parentCost = [self.parentTile getGScore];
+    }
+    return self.movementCost + parentCost;
+    
+}
+
+-(int)getGScoreForAttack {
+    int parentCost = 0;
+    if(self.parentTile) {
+        parentCost = [self.parentTile getGScoreForAttack];
+    }
+    return 1 + parentCost;
+}
+
+-(int)fScore {
+    return self.gScore + self.hScore;
+}
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"%@  pos=[%.0f;%.0f]  g=%d  h=%d  f=%d", [super description], self.tilePosition.x, self.tilePosition.y, self.gScore, self.hScore, [self fScore]];
+}
+
 @end

@@ -24,8 +24,19 @@
 @property (nonatomic, strong) TileData *tileDataBeforeMovement;
 @property (nonatomic, assign) touchState state;
 @property (nonatomic, strong) CCLabelBMFont *hpLabel;
+@property (nonatomic, assign) BOOL movedThisTurn;
+@property (nonatomic, assign) BOOL attackedThisTurn;
+@property (nonatomic, assign) BOOL selectingMovement;
+@property (nonatomic, assign) BOOL selectingAttack;
+@property (nonatomic, strong) NSMutableArray *spOpenSteps;
+@property (nonatomic, strong) NSMutableArray *spClosedSteps;
+@property (nonatomic, strong) NSMutableArray *movementPath;
 
 + (instancetype)nodeWithGame:(HelloWorldLayer *)gameLayer tileDict:(NSDictionary *)tileDict owner:(int)owner;
 - (void)createSprite:(NSDictionary *)tileDict;
+- (void)selectUnit;
+- (void)unselectUnit;
+- (void)unMarkPossibleMovement;
+- (void)markPossibleAction:(int)action;
 
 @end
