@@ -38,5 +38,11 @@
 - (void)unselectUnit;
 - (void)unMarkPossibleMovement;
 - (void)markPossibleAction:(int)action;
+- (void)insertOrderedInOpenSteps:(TileData *)tile;
+- (int)computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord;
+- (int)costToMoveFromTile:(TileData *)fromTile toAdjacentTile:(TileData *)toTile;
+- (void)constructPathAndStartAnimationFromStep:(TileData *)tile;
+- (void)popStepAndAnimate;
+- (void)doMarkedMovement:(TileData *)targetTileData;
 
 @end

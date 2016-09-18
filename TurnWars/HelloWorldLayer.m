@@ -104,6 +104,25 @@
     }
 }
 
+#pragma mark - Touch
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInView:touch.view];
+        location = [[CCDirector sharedDirector] convertToGL:location];
+        
+        TileData *tileData = [self getTileData:[self tileCoordForPosition:location]];
+        
+        // move unit to tile if possible
+        // Why do i check if the other unit in tile is the selected unit?
+        if ((tileData.selectedForMovement && ![self otherUnitInTile:tileData]) || ([self otherUnitInTile:tileData] == self.selectedUnit)) {
+            [self.selectedUnit doMarkedMovement:tileData];
+        }
+        
+        // handle attacks here
+    }
+}
+
 #pragma mark - Helper
 
 // Get the scale for a sprite - 1 for normal display, 2 for retina

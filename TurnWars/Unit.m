@@ -176,4 +176,130 @@
     [self.spOpenSteps removeAllObjects];
 }
 
+-(void)insertOrderedInOpenSteps:(TileData *)tile {
+    // Compute the step's F score
+    int tileFScore = [tile fScore];
+    int count = [self.spOpenSteps count];
+    // This will be the index at which we will insert the step
+    int i = 0;
+    for (; i < count; i++) {
+        // If the step's F score is lower or equals to the step at index i
+        if (tileFScore <= [[self.spOpenSteps objectAtIndex:i] fScore]) {
+            // Then you found the index at which you have to insert the new step
+            // Basically you want the list sorted by F score
+            break;
+        }
+    }
+    // Insert the new step at the determined index to preserve the F score ordering
+    [self.spOpenSteps insertObject:tile atIndex:i];
+}
+
+-(int)computeHScoreFromCoord:(CGPoint)fromCoord toCoord:(CGPoint)toCoord {
+    // Here you use the Manhattan method, which calculates the total number of steps moved horizontally and vertically to reach the
+    // final desired step from the current step, ignoring any obstacles that may be in the way
+    return abs(toCoord.x - fromCoord.x) + abs(toCoord.y - fromCoord.y);
+}
+
+-(int)costToMoveFromTile:(TileData *)fromTile toAdjacentTile:(TileData *)toTile {
+    // Because you can't move diagonally and because terrain is just walkable or unwalkable the cost is always the same.
+    // But it has to be different if you can move diagonally and/or if there are swamps, hills, etc...
+    return 1;
+}
+
+-(void)constructPathAndStartAnimationFromStep:(TileData *)tile {
+    [self.movementPath removeAllObjects];
+    // Repeat until there are no more parents
+    do {
+        // Don't add the last step which is the start position (remember you go backward, so the last one is the origin position ;-)
+        if (tile.parentTile != nil) {
+            // Always insert at index 0 to reverse the path
+            [self.movementPath insertObject:tile atIndex:0];
+        }
+        // Go backward
+        tile = tile.parentTile;
+    } while (tile != nil);
+    [self popStepAndAnimate];
+}
+
+-(void)popStepAndAnimate {
+    // Check if there remain path steps to go through
+    if ([self.movementPath count] == 0) {
+        self.moving = NO;
+        [self unMarkPossibleMovement];
+        return;
+    }
+    // Get the next step to move toward
+    TileData *s = [self.movementPath objectAtIndex:0];
+    // Prepare the action and the callback
+    id moveAction = [CCMoveTo actionWithDuration:0.4 position:[self.gameLayer positionForTileCoord:s.tilePosition]];
+    // set the method itself as the callback
+    id moveCallback = [CCCallFunc actionWithTarget:self selector:@selector(popStepAndAnimate)];
+    // Remove the step
+    [self.movementPath removeObjectAtIndex:0];
+    // Play actions
+    [self.unitSprite runAction:[CCSequence actions:moveAction, moveCallback, nil]];
+}
+
+
+-(void)doMarkedMovement:(TileData *)targetTileData {
+    if (self.moving)
+        return;
+    self.moving = YES;
+    CGPoint startTile = [self.gameLayer tileCoordForPosition:self.unitSprite.position];
+    self.tileDataBeforeMovement = [self.gameLayer getTileData:startTile];
+    [self insertOrderedInOpenSteps:self.tileDataBeforeMovement];
+    do {
+        TileData * _currentTile = ((TileData *)[self.spOpenSteps objectAtIndex:0]);
+        CGPoint _currentTileCoord = _currentTile.tilePosition;
+        [self.spClosedSteps addObject:_currentTile];
+        [self.spOpenSteps removeObjectAtIndex:0];
+        // If the currentStep is the desired tile coordinate, you are done!
+        if (CGPointEqualToPoint(_currentTile.tilePosition, targetTileData.tilePosition)) {
+            [self constructPathAndStartAnimationFromStep:_currentTile];
+            // Set to nil to release unused memory
+            [self.spOpenSteps removeAllObjects];
+            // Set to nil to release unused memory
+            [self.spClosedSteps removeAllObjects];
+            break;
+        }
+        NSMutableArray * tiles = [self.gameLayer getTilesNextToTile:_currentTileCoord];
+        for (NSValue * tileValue in tiles) {
+            CGPoint tileCoord = [tileValue CGPointValue];
+            TileData * _neighbourTile = [self.gameLayer getTileData:tileCoord];
+            if ([self.spClosedSteps containsObject:_neighbourTile]) {
+                continue;
+            }
+            if ([self.gameLayer otherEnemyUnitInTile:_neighbourTile unitOwner:self.owner]) {
+                // Ignore it
+                continue;
+            }
+            if (![self canWalkOverTile:_neighbourTile]) {
+                // Ignore it
+                continue;
+            }
+            int moveCost = [self costToMoveFromTile:_currentTile toAdjacentTile:_neighbourTile];
+            NSUInteger index = [self.spOpenSteps indexOfObject:_neighbourTile];
+            if (index == NSNotFound) {
+                _neighbourTile.parentTile = nil;
+                _neighbourTile.parentTile = _currentTile;
+                _neighbourTile.gScore = _currentTile.gScore + moveCost;
+                _neighbourTile.hScore = [self computeHScoreFromCoord:_neighbourTile.tilePosition toCoord:targetTileData.tilePosition];
+                [self insertOrderedInOpenSteps:_neighbourTile];
+            } else {
+                // To retrieve the old one (which has its scores already computed ;-)
+                _neighbourTile = [self.spOpenSteps objectAtIndex:index];
+                // Check to see if the G score for that step is lower if you use the current step to get there
+                if ((_currentTile.gScore + moveCost) < _neighbourTile.gScore) {
+                    // The G score is equal to the parent G score + the cost to move from the parent to it
+                    _neighbourTile.gScore = _currentTile.gScore + moveCost;
+                    // Now you can remove it from the list without being afraid that it can't be released
+                    [self.spOpenSteps removeObjectAtIndex:index];
+                    // Re-insert it with the function, which is preserving the list ordered by F score
+                    [self insertOrderedInOpenSteps:_neighbourTile];
+                }
+            }
+        }
+    } while ([self.spOpenSteps count]>0);
+}
+
 @end
