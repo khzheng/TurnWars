@@ -203,6 +203,14 @@
 		EBC048E71D8DED9E0060CA8B /* Font_silver_size17-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DB1D8DED9E0060CA8B /* Font_silver_size17-hd.png */; };
 		EBC048E81D8DED9E0060CA8B /* Font_silver_size17.fnt in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DC1D8DED9E0060CA8B /* Font_silver_size17.fnt */; };
 		EBC048E91D8DED9E0060CA8B /* Font_silver_size17.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048DD1D8DED9E0060CA8B /* Font_silver_size17.png */; };
+		EBC048F91D8F189E0060CA8B /* popup_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F11D8F189E0060CA8B /* popup_bg-hd.png */; };
+		EBC048FA1D8F189E0060CA8B /* popup_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F21D8F189E0060CA8B /* popup_bg.png */; };
+		EBC048FB1D8F189E0060CA8B /* uiBar_button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F31D8F189E0060CA8B /* uiBar_button-hd.png */; };
+		EBC048FC1D8F189E0060CA8B /* uiBar_button.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F41D8F189E0060CA8B /* uiBar_button.png */; };
+		EBC048FD1D8F189E0060CA8B /* uiBar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F51D8F189E0060CA8B /* uiBar-hd.png */; };
+		EBC048FE1D8F189E0060CA8B /* uiBar.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F61D8F189E0060CA8B /* uiBar.png */; };
+		EBC048FF1D8F189E0060CA8B /* victory_bck-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F71D8F189E0060CA8B /* victory_bck-hd.png */; };
+		EBC049001D8F189E0060CA8B /* victory_bck.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F81D8F189E0060CA8B /* victory_bck.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -545,6 +553,14 @@
 		EBC048DB1D8DED9E0060CA8B /* Font_silver_size17-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Font_silver_size17-hd.png"; sourceTree = "<group>"; };
 		EBC048DC1D8DED9E0060CA8B /* Font_silver_size17.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Font_silver_size17.fnt; sourceTree = "<group>"; };
 		EBC048DD1D8DED9E0060CA8B /* Font_silver_size17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Font_silver_size17.png; sourceTree = "<group>"; };
+		EBC048F11D8F189E0060CA8B /* popup_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popup_bg-hd.png"; sourceTree = "<group>"; };
+		EBC048F21D8F189E0060CA8B /* popup_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popup_bg.png; sourceTree = "<group>"; };
+		EBC048F31D8F189E0060CA8B /* uiBar_button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiBar_button-hd.png"; sourceTree = "<group>"; };
+		EBC048F41D8F189E0060CA8B /* uiBar_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uiBar_button.png; sourceTree = "<group>"; };
+		EBC048F51D8F189E0060CA8B /* uiBar-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uiBar-hd.png"; sourceTree = "<group>"; };
+		EBC048F61D8F189E0060CA8B /* uiBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uiBar.png; sourceTree = "<group>"; };
+		EBC048F71D8F189E0060CA8B /* victory_bck-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "victory_bck-hd.png"; sourceTree = "<group>"; };
+		EBC048F81D8F189E0060CA8B /* victory_bck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory_bck.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -632,6 +648,14 @@
 		EBC046CF1D8DDB740060CA8B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EBC048F11D8F189E0060CA8B /* popup_bg-hd.png */,
+				EBC048F21D8F189E0060CA8B /* popup_bg.png */,
+				EBC048F31D8F189E0060CA8B /* uiBar_button-hd.png */,
+				EBC048F41D8F189E0060CA8B /* uiBar_button.png */,
+				EBC048F51D8F189E0060CA8B /* uiBar-hd.png */,
+				EBC048F61D8F189E0060CA8B /* uiBar.png */,
+				EBC048F71D8F189E0060CA8B /* victory_bck-hd.png */,
+				EBC048F81D8F189E0060CA8B /* victory_bck.png */,
 				EBC048571D8DE0B10060CA8B /* StageMap-hd.tmx */,
 				EBC048581D8DE0B10060CA8B /* StageMap.tmx */,
 				EBC046D01D8DDB740060CA8B /* Default.png */,
@@ -1138,6 +1162,7 @@
 				EBC046DF1D8DDB740060CA8B /* Icon-Small.png in Resources */,
 				EBC048C21D8DED7D0060CA8B /* Cannon_P1.png in Resources */,
 				EBC046D31D8DDB740060CA8B /* Default-Landscape~ipad.png in Resources */,
+				EBC048F91D8F189E0060CA8B /* popup_bg-hd.png in Resources */,
 				EBC046E31D8DDB740060CA8B /* Icon.png in Resources */,
 				EBC048E21D8DED9E0060CA8B /* Font_dark_size15-hd.fnt in Resources */,
 				EBC048871D8DE13E0060CA8B /* water_02.png in Resources */,
@@ -1153,10 +1178,12 @@
 				EBC048E91D8DED9E0060CA8B /* Font_silver_size17.png in Resources */,
 				EBC0488C1D8DE13E0060CA8B /* water_04@2x.png in Resources */,
 				EBC048C31D8DED7D0060CA8B /* Cannon_P2-hd.png in Resources */,
+				EBC048FE1D8F189E0060CA8B /* uiBar.png in Resources */,
 				EBC048C11D8DED7D0060CA8B /* Cannon_P1-hd.png in Resources */,
 				EBC048D01D8DED7D0060CA8B /* Tank_P2.png in Resources */,
 				EBC046E51D8DDB740060CA8B /* Icon@2x.png in Resources */,
 				EBC048DF1D8DED9E0060CA8B /* Font_dark_size12-hd.png in Resources */,
+				EBC048FD1D8F189E0060CA8B /* uiBar-hd.png in Resources */,
 				EBC046D11D8DDB740060CA8B /* Default.png in Resources */,
 				EBC048851D8DE13E0060CA8B /* water_01.png in Resources */,
 				EBC048971D8DE13E0060CA8B /* water_10.png in Resources */,
@@ -1172,6 +1199,7 @@
 				EBC048951D8DE13E0060CA8B /* water_09.png in Resources */,
 				EBC048E51D8DED9E0060CA8B /* Font_dark_size15.png in Resources */,
 				EBC048E31D8DED9E0060CA8B /* Font_dark_size15-hd.png in Resources */,
+				EBC049001D8F189E0060CA8B /* victory_bck.png in Resources */,
 				EBC048811D8DE13E0060CA8B /* TileLayer_background-hd.png in Resources */,
 				EBC048C61D8DED7D0060CA8B /* Helicopter_P1.png in Resources */,
 				EBC0488B1D8DE13E0060CA8B /* water_04.png in Resources */,
@@ -1179,6 +1207,7 @@
 				EBC048931D8DE13E0060CA8B /* water_08.png in Resources */,
 				EBC048CD1D8DED7D0060CA8B /* Tank_P1-hd.png in Resources */,
 				EBC046E81D8DDB740060CA8B /* iTunesArtwork in Resources */,
+				EBC048FC1D8F189E0060CA8B /* uiBar_button.png in Resources */,
 				EBC048C71D8DED7D0060CA8B /* Helicopter_P2-hd.png in Resources */,
 				EBC048C51D8DED7D0060CA8B /* Helicopter_P1-hd.png in Resources */,
 				EBC048261D8DDB750060CA8B /* ChangeLog in Resources */,
@@ -1188,6 +1217,7 @@
 				EBC048DE1D8DED9E0060CA8B /* Font_dark_size12-hd.fnt in Resources */,
 				EBC048C41D8DED7D0060CA8B /* Cannon_P2.png in Resources */,
 				EBC0489E1D8DE13E0060CA8B /* water_13@2x.png in Resources */,
+				EBC048FF1D8F189E0060CA8B /* victory_bck-hd.png in Resources */,
 				EBC048E01D8DED9E0060CA8B /* Font_dark_size12.fnt in Resources */,
 				EBC048E41D8DED9E0060CA8B /* Font_dark_size15.fnt in Resources */,
 				EBC046D91D8DDB740060CA8B /* fps_images-ipadhd.png in Resources */,
@@ -1195,6 +1225,7 @@
 				EBC0489B1D8DE13E0060CA8B /* water_12.png in Resources */,
 				EBC048921D8DE13E0060CA8B /* water_07@2x.png in Resources */,
 				EBC048881D8DE13E0060CA8B /* water_02@2x.png in Resources */,
+				EBC048FB1D8F189E0060CA8B /* uiBar_button-hd.png in Resources */,
 				EBC048E11D8DED9E0060CA8B /* Font_dark_size12.png in Resources */,
 				EBC048CE1D8DED7D0060CA8B /* Tank_P1.png in Resources */,
 				EBC0487F1D8DE13E0060CA8B /* mountain.png in Resources */,
@@ -1212,6 +1243,7 @@
 				EBC048CA1D8DED7D0060CA8B /* Soldier_P1.png in Resources */,
 				EBC048841D8DE13E0060CA8B /* trees@2x.png in Resources */,
 				EBC048C81D8DED7D0060CA8B /* Helicopter_P2.png in Resources */,
+				EBC048FA1D8F189E0060CA8B /* popup_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

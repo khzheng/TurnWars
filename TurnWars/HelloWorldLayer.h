@@ -19,6 +19,8 @@
 @property (nonatomic, assign) int playerTurn;
 @property (nonatomic, strong) Unit *selectedUnit;
 @property (nonatomic, strong) NSMutableArray *tileDataArray;
+@property (nonatomic, strong) CCMenu *actionsMenu;
+@property (nonatomic, strong) CCSprite *contextMenuBg;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
@@ -37,5 +39,7 @@
 - (void)unPaintMovementTile:(TileData *)tileData;
 - (void)selectUnit:(Unit *)unit;
 - (void)unselectUnit;
+- (void)showActionsMenu:(Unit *)unit canAttack:(BOOL)canAttack;
+- (void)removeActionsMenu;
 
 @end

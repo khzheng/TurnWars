@@ -246,4 +246,48 @@
     self.selectedUnit = nil;
 }
 
+-(void)showActionsMenu:(Unit *)unit canAttack:(BOOL)canAttack {
+    // 1 - Get the window size
+    CGSize wins = [[CCDirector sharedDirector] winSize];
+    // 2 - Create the menu background
+    self.contextMenuBg = [CCSprite spriteWithFile:@"popup_bg.png"];
+    [self addChild:self.contextMenuBg z:19];
+    // 3 - Create the menu option labels
+    CCLabelBMFont * stayLbl = [CCLabelBMFont labelWithString:@"Stay" fntFile:@"Font_dark_size15.fnt"];
+    CCMenuItemLabel * stayBtn = [CCMenuItemLabel itemWithLabel:stayLbl target:unit selector:@selector(doStay)];
+    CCLabelBMFont * attackLbl = [CCLabelBMFont labelWithString:@"Attack" fntFile:@"Font_dark_size15.fnt"];
+    CCMenuItemLabel * attackBtn = [CCMenuItemLabel itemWithLabel:attackLbl target:unit selector:@selector(doAttack)];
+    CCLabelBMFont * cancelLbl = [CCLabelBMFont labelWithString:@"Cancel" fntFile:@"Font_dark_size15.fnt"];
+    CCMenuItemLabel * cancelBtn = [CCMenuItemLabel itemWithLabel:cancelLbl target:unit selector:@selector(doCancel)];
+    // 4 - Create the menu
+    self.actionsMenu = [CCMenu menuWithItems:nil];
+    // 5 - Add Stay button
+    [self.actionsMenu addChild:stayBtn];
+    // 6 - Add the Attack button only if the current unit can attack
+    if (canAttack) {
+        [self.actionsMenu addChild:attackBtn];
+    }
+    // 7 - Add the Cancel button
+    [self.actionsMenu addChild:cancelBtn];
+    // 8 - Add the menu to the layer
+    [self addChild:self.actionsMenu z:19];
+    // 9 - Position menu
+    [self.actionsMenu alignItemsVerticallyWithPadding:5];
+    if (unit.unitSprite.position.x > wins.width/2) {
+        [self.contextMenuBg setPosition:ccp(100,wins.height/2)];
+        [self.actionsMenu setPosition:ccp(100,wins.height/2)];
+    } else {
+        [self.contextMenuBg setPosition:ccp(wins.width-100,wins.height/2)];
+        [self.actionsMenu setPosition:ccp(wins.width-100,wins.height/2)];
+    }
+}
+
+-(void)removeActionsMenu {
+    // Remove the menu from the layer and clean up
+    [self.contextMenuBg.parent removeChild:self.contextMenuBg cleanup:YES];
+    self.contextMenuBg = nil;
+    [self.actionsMenu.parent removeChild:self.actionsMenu cleanup:YES];
+    self.actionsMenu = nil;
+}
+
 @end

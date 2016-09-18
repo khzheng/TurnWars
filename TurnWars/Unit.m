@@ -7,6 +7,7 @@
 //
 
 #import "Unit.h"
+#import "Unit_Soldier.h"
 
 #define kACTION_MOVEMENT 0
 #define kACTION_ATTACK 1
@@ -71,6 +72,16 @@
 }
 
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    // If the action menu is showing, do not handle any touches on unit
+    if (self.gameLayer.actionsMenu)
+        return NO;
+    // If the current unit is the selected unit, do not handle any touches
+    if (self.gameLayer.selectedUnit == self)
+        return NO;
+    // If this unit has moved already, do not handle any touches
+    if (self.movedThisTurn)
+        return NO;
+    
     if (self.state != kStateUngrabbed)
         return NO;
     if (![self containsTouchLocation:touch])
@@ -226,6 +237,8 @@
     if ([self.movementPath count] == 0) {
         self.moving = NO;
         [self unMarkPossibleMovement];
+        BOOL enemiesAreInRange = NO;
+        [self.gameLayer showActionsMenu:self canAttack:enemiesAreInRange];
         return;
     }
     // Get the next step to move toward
@@ -300,6 +313,35 @@
             }
         }
     } while ([self.spOpenSteps count]>0);
+}
+
+// Stay on the current tile
+-(void)doStay {
+    // 1 - Remove the context menu since we've taken an action
+    [self.gameLayer removeActionsMenu];
+    self.movedThisTurn = YES;
+    // 2 - Turn the unit tray to indicate that it has moved
+    [self.unitSprite setColor:ccGRAY];
+    [self.gameLayer unselectUnit];
+    // 3 - Check for victory conditions
+    if ([self isKindOfClass:[Unit_Soldier class]]) {
+        // If this is a Soldier unit and it is standing over an enemy building, the player wins.
+        // We'll handle this situation in detail later
+    }
+}
+
+// Attack another unit
+-(void)doAttack {
+    // You'll handle attack later
+}
+
+// Cancel the move for the current unit and go back to previous position
+-(void)doCancel {
+    // Remove the context menu since we've taken an action
+    [self.gameLayer removeActionsMenu];
+    // Move back to the previous tile
+    self.unitSprite.position = [self.gameLayer positionForTileCoord:self.tileDataBeforeMovement.tilePosition];
+    [self.gameLayer unselectUnit];
 }
 
 @end
