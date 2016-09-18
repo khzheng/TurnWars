@@ -121,6 +121,7 @@
     self.selectingMovement = NO;
     self.selectingAttack = NO;
     [self unMarkPossibleMovement];
+    [self unMarkPossibleAttack];
 }
 
 // Remove the "possible-to-move" indicator
@@ -142,8 +143,10 @@
     // If we are selecting movement, paint the tiles
     if (action == kACTION_MOVEMENT) {
         [self.gameLayer paintMovementTile:startTileData];
+    } else if (action == kACTION_ATTACK) {
+        [self.gameLayer checkAttackTile:startTileData unitOwner:self.owner];
     }
-    // else if(action == kACTION_ATTACK)  // You'll handle attacks later
+
     int i =0;
     // For each tile in the list, beginning with the start tile
     do {
@@ -172,16 +175,23 @@
             // If you can move over there, paint it.
             if (action == kACTION_MOVEMENT) {
                 [self.gameLayer paintMovementTile:_neighbourTile];
+            } else if (action == kACTION_ATTACK) {
+                [self.gameLayer checkAttackTile:_neighbourTile unitOwner:self.owner];
             }
-            // else if(action == kACTION_ATTACK) //You'll handle attacks later
+            
             // Check how much it costs to move to or attack that tile.
             if (action == kACTION_MOVEMENT) {
                 if ([_neighbourTile getGScore]> self.movementRange) {
                     continue;
                 }
             } else if(action == kACTION_ATTACK) {
-                //You'll handle attacks later
+                // is the tile not in range?
+                if ([_neighbourTile getGScoreForAttack] > self.attackRange) {
+                    // ignore it
+                    continue;
+                }
             }
+            
             [self.spOpenSteps addObject:_neighbourTile];
             [self.spClosedSteps addObject:_neighbourTile];
         }
@@ -236,15 +246,27 @@
     [self popStepAndAnimate];
 }
 
--(void)popStepAndAnimate {
-    // Check if there remain path steps to go through
+-(void)popStepAndAnimate {    
+    // 1 - Check if the unit is done moving
     if ([self.movementPath count] == 0) {
+        // 1.1 - Mark the unit as not moving
         self.moving = NO;
         [self unMarkPossibleMovement];
+        // 1.2 - Mark the tiles that can be attacked
+        [self markPossibleAction:kACTION_ATTACK];
+        // 1.3 - Check for enemies in range
         BOOL enemiesAreInRange = NO;
+        for (TileData *td in self.gameLayer.tileDataArray) {
+            if (td.selectedForAttack) {
+                enemiesAreInRange = YES;
+                break;
+            }
+        }
+        // 1.4 - Show the menu and enable the Attack option if there are enemies in range
         [self.gameLayer showActionsMenu:self canAttack:enemiesAreInRange];
         return;
     }
+    
     // Get the next step to move toward
     TileData *s = [self.movementPath objectAtIndex:0];
     // Prepare the action and the callback
@@ -336,7 +358,16 @@
 
 // Attack another unit
 -(void)doAttack {
-    // You'll handle attack later
+    // 1 - Remove the context menu since we've taken an action
+    [self.gameLayer removeActionsMenu];
+    // 2 - Check if any tile has been selected for attack
+    for (TileData *td in self.gameLayer.tileDataArray) {
+        if (td.selectedForAttack) {
+            // 3 - Mark the selected tile as attackable
+            [self.gameLayer paintAttackTile:td];
+        }
+    }
+    self.selectingAttack = YES;
 }
 
 // Cancel the move for the current unit and go back to previous position
@@ -356,6 +387,15 @@
     self.attackedThisTurn = NO;
     // Change the unit overlay colour from gray (inactive) to white (active)
     [self.unitSprite setColor:ccWHITE];
+}
+
+// Remove attack selection marking from all tiles
+- (void)unMarkPossibleAttack {
+    for (TileData *td in self.gameLayer.tileDataArray) {
+        [self.gameLayer unPaintAttackTile:td];
+        td.parentTile = nil;
+        td.selectedForAttack = NO;
+    }
 }
 
 @end

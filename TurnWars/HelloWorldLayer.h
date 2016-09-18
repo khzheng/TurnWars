@@ -50,5 +50,9 @@
 - (void)beginTurn;
 - (void)removeLayer:(CCNode *)n;
 - (void)activateUnits:(NSMutableArray *)units;
+- (BOOL)checkAttackTile:(TileData *)tData unitOwner:(int)owner;
+- (BOOL)paintAttackTile:(TileData *)tData;
+- (void)unPaintAttackTiles;
+- (void)unPaintAttackTile:(TileData *)tileData;
 
 @end

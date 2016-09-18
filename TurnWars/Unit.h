@@ -45,5 +45,6 @@
 - (void)popStepAndAnimate;
 - (void)doMarkedMovement:(TileData *)targetTileData;
 - (void)startTurn;
+- (void)unMarkPossibleAttack;
 
 @end

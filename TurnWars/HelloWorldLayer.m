@@ -380,4 +380,35 @@
     }
 }
 
+// Check the specified tile to see if it can be attacked
+-(BOOL)checkAttackTile:(TileData *)tData unitOwner:(int)owner {
+    // Is this tile already marked for attack, if so, we don't need to do anything further
+    // If not, does the tile contain an enemy unit? If yes, we can attack this tile
+    if (!tData.selectedForAttack && [self otherEnemyUnitInTile:tData unitOwner:owner]!= nil) {
+        tData.selectedForAttack = YES;
+        return NO;
+    }
+    return YES;
+}
+
+// Paint the given tile as one that can be attacked
+-(BOOL)paintAttackTile:(TileData *)tData {
+    CCSprite * tile = [self.bgLayer tileAt:tData.tilePosition];
+    [tile setColor:ccRED];
+    return YES;
+}
+
+// Remove the attack marking from all tiles
+-(void)unPaintAttackTiles {
+    for (TileData * td in self.tileDataArray) {
+        [self unPaintAttackTile:td];
+    }
+}
+
+// Remove the attack marking from a specific tile
+-(void)unPaintAttackTile:(TileData *)tileData {
+    CCSprite * tile = [self.bgLayer tileAt:tileData.tilePosition];
+    [tile setColor:ccWHITE];
+}
+
 @end
