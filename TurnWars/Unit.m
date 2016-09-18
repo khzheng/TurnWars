@@ -49,6 +49,12 @@
     self.hpLabel.position = ccp([self.unitSprite boundingBox].size.width - [self.hpLabel boundingBox].size.width/2, [self.hpLabel boundingBox].size.height/2);
 }
 
+// Update the HP value display
+-(void)updateHpLabel {
+    [self.hpLabel setString:[NSString stringWithFormat:@"%d", self.hp]];
+    [self.hpLabel setPosition:ccp([self.unitSprite boundingBox].size.width-[self.hpLabel boundingBox].size.width/2,[self.hpLabel boundingBox].size.height/2)];
+}
+
 - (BOOL)canWalkOverTile:(TileData *)tileData {
     return YES;
 }
@@ -396,6 +402,72 @@
         td.parentTile = nil;
         td.selectedForAttack = NO;
     }
+}
+
+// Attack the specified tile
+-(void)doMarkedAttack:(TileData *)targetTileData {
+    // Mark the unit as having attacked this turn
+    self.attackedThisTurn = YES;
+    // Get the attacked unit
+    Unit *attackedUnit = [self.gameLayer otherEnemyUnitInTile:targetTileData unitOwner:self.owner];
+    // Let the attacked unit handle the attack
+    [attackedUnit attackedBy:self firstAttack:YES];
+    // Keep this unit in the curren location
+    [self doStay];
+}
+
+// Handle the attack from another unit
+-(void)attackedBy:(Unit *)attacker firstAttack:(BOOL)firstAttack {
+    // Create the damage data since we need to pass this information on to another method
+    NSMutableDictionary *damageData = [NSMutableDictionary dictionaryWithCapacity:2];
+    [damageData setObject:attacker forKey:@"attacker"];
+    [damageData setObject:[NSNumber numberWithBool:firstAttack] forKey:@"firstAttack"];
+    // Create explosion sprite
+    CCSprite *explosion = [CCSprite spriteWithFile:@"explosion_1.png"];
+    [self addChild:explosion z:10];
+    [explosion setPosition:self.unitSprite.position];
+    // Create explosion animation
+    CCAnimation *animation = [CCAnimation animation];
+    for (int i=1;i<=7;i++) {
+        [animation addFrameWithFilename: [NSString stringWithFormat:@"explosion_%d.png", i]];
+    }
+    id action = [CCAnimate actionWithDuration:0.5 animation:animation restoreOriginalFrame:NO];
+    // Run the explosion animation, call method to remove explosion once it's done and finally calculate damage from attack
+    [explosion runAction: [CCSequence actions: action,
+                           [CCCallFuncN actionWithTarget:self selector:@selector(removeExplosion:)],
+                           [CCCallFuncO actionWithTarget:self selector:@selector(dealDamage:) object:damageData],
+                           nil]];
+}
+
+// Calculate damage from attack
+-(void)dealDamage:(NSMutableDictionary *)damageData {
+    // 1 - Get the attacker from the passed in data dictionary
+    Unit *attacker = [damageData objectForKey:@"attacker"];
+    // 2 - Calculate damage
+    self.hp -= [self.gameLayer calculateDamageFrom:attacker onDefender:self];
+    // 3 - Is the unit dead?
+    if (self.hp <= 0) {
+        // 4 - Unit is dead - remove it from game
+        [self.parent removeChild:self cleanup:YES];
+        if ([self.gameLayer.p1Units containsObject:self]) {
+            [self.gameLayer.p1Units removeObject:self];
+        } else if ([self.gameLayer.p2Units containsObject:self]) {
+            [self.gameLayer.p2Units removeObject:self];
+        }
+    } else {
+        // 5 - Update HP for unit
+        [self updateHpLabel];
+        // 6 - Call attackedBy: on the attacker so that damage can be calculated for the attacker
+        if ([[damageData objectForKey:@"firstAttack"] boolValue] && !attacker.hasRangedWeapon && !self.hasRangedWeapon) {
+            [attacker attackedBy:self firstAttack:NO];
+        }
+    }
+}
+
+// Clean up after explosion
+-(void)removeExplosion:(CCSprite *)e {
+    // Remove the explosion sprite
+    [e.parent removeChild:e cleanup:YES];
 }
 
 @end

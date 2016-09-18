@@ -211,6 +211,25 @@
 		EBC048FE1D8F189E0060CA8B /* uiBar.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F61D8F189E0060CA8B /* uiBar.png */; };
 		EBC048FF1D8F189E0060CA8B /* victory_bck-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F71D8F189E0060CA8B /* victory_bck-hd.png */; };
 		EBC049001D8F189E0060CA8B /* victory_bck.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC048F81D8F189E0060CA8B /* victory_bck.png */; };
+		EBC049061D8F350D0060CA8B /* btn.wav in Resources */ = {isa = PBXBuildFile; fileRef = EBC049011D8F350D0060CA8B /* btn.wav */; };
+		EBC049071D8F350D0060CA8B /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = EBC049021D8F350D0060CA8B /* explosion.wav */; };
+		EBC049081D8F350D0060CA8B /* Five Armies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC049031D8F350D0060CA8B /* Five Armies.mp3 */; };
+		EBC049091D8F350D0060CA8B /* hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = EBC049041D8F350D0060CA8B /* hurt.wav */; };
+		EBC0490A1D8F350D0060CA8B /* move.wav in Resources */ = {isa = PBXBuildFile; fileRef = EBC049051D8F350D0060CA8B /* move.wav */; };
+		EBC0491A1D8F367A0060CA8B /* explosion_1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0490C1D8F367A0060CA8B /* explosion_1-hd.png */; };
+		EBC0491B1D8F367A0060CA8B /* explosion_1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0490D1D8F367A0060CA8B /* explosion_1.png */; };
+		EBC0491C1D8F367A0060CA8B /* explosion_2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0490E1D8F367A0060CA8B /* explosion_2-hd.png */; };
+		EBC0491D1D8F367A0060CA8B /* explosion_2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC0490F1D8F367A0060CA8B /* explosion_2.png */; };
+		EBC0491E1D8F367A0060CA8B /* explosion_3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049101D8F367A0060CA8B /* explosion_3-hd.png */; };
+		EBC0491F1D8F367A0060CA8B /* explosion_3.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049111D8F367A0060CA8B /* explosion_3.png */; };
+		EBC049201D8F367A0060CA8B /* explosion_4-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049121D8F367A0060CA8B /* explosion_4-hd.png */; };
+		EBC049211D8F367A0060CA8B /* explosion_4.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049131D8F367A0060CA8B /* explosion_4.png */; };
+		EBC049221D8F367A0060CA8B /* explosion_5-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049141D8F367A0060CA8B /* explosion_5-hd.png */; };
+		EBC049231D8F367A0060CA8B /* explosion_5.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049151D8F367A0060CA8B /* explosion_5.png */; };
+		EBC049241D8F367A0060CA8B /* explosion_6-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049161D8F367A0060CA8B /* explosion_6-hd.png */; };
+		EBC049251D8F367A0060CA8B /* explosion_6.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049171D8F367A0060CA8B /* explosion_6.png */; };
+		EBC049261D8F367A0060CA8B /* explosion_7-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049181D8F367A0060CA8B /* explosion_7-hd.png */; };
+		EBC049271D8F367A0060CA8B /* explosion_7.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC049191D8F367A0060CA8B /* explosion_7.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -561,6 +580,25 @@
 		EBC048F61D8F189E0060CA8B /* uiBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uiBar.png; sourceTree = "<group>"; };
 		EBC048F71D8F189E0060CA8B /* victory_bck-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "victory_bck-hd.png"; sourceTree = "<group>"; };
 		EBC048F81D8F189E0060CA8B /* victory_bck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory_bck.png; sourceTree = "<group>"; };
+		EBC049011D8F350D0060CA8B /* btn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn.wav; sourceTree = "<group>"; };
+		EBC049021D8F350D0060CA8B /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		EBC049031D8F350D0060CA8B /* Five Armies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Five Armies.mp3"; sourceTree = "<group>"; };
+		EBC049041D8F350D0060CA8B /* hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hurt.wav; sourceTree = "<group>"; };
+		EBC049051D8F350D0060CA8B /* move.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = move.wav; sourceTree = "<group>"; };
+		EBC0490C1D8F367A0060CA8B /* explosion_1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_1-hd.png"; sourceTree = "<group>"; };
+		EBC0490D1D8F367A0060CA8B /* explosion_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_1.png; sourceTree = "<group>"; };
+		EBC0490E1D8F367A0060CA8B /* explosion_2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_2-hd.png"; sourceTree = "<group>"; };
+		EBC0490F1D8F367A0060CA8B /* explosion_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_2.png; sourceTree = "<group>"; };
+		EBC049101D8F367A0060CA8B /* explosion_3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_3-hd.png"; sourceTree = "<group>"; };
+		EBC049111D8F367A0060CA8B /* explosion_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_3.png; sourceTree = "<group>"; };
+		EBC049121D8F367A0060CA8B /* explosion_4-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_4-hd.png"; sourceTree = "<group>"; };
+		EBC049131D8F367A0060CA8B /* explosion_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_4.png; sourceTree = "<group>"; };
+		EBC049141D8F367A0060CA8B /* explosion_5-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_5-hd.png"; sourceTree = "<group>"; };
+		EBC049151D8F367A0060CA8B /* explosion_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_5.png; sourceTree = "<group>"; };
+		EBC049161D8F367A0060CA8B /* explosion_6-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_6-hd.png"; sourceTree = "<group>"; };
+		EBC049171D8F367A0060CA8B /* explosion_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_6.png; sourceTree = "<group>"; };
+		EBC049181D8F367A0060CA8B /* explosion_7-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "explosion_7-hd.png"; sourceTree = "<group>"; };
+		EBC049191D8F367A0060CA8B /* explosion_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion_7.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,6 +709,8 @@
 				EBC046E41D8DDB740060CA8B /* Icon@2x.png */,
 				EBC046E61D8DDB740060CA8B /* Info.plist */,
 				EBC046E71D8DDB740060CA8B /* iTunesArtwork */,
+				EBC049281D8F367F0060CA8B /* Animations */,
+				EBC0490B1D8F35120060CA8B /* Sounds */,
 				EBC048EA1D8DEDA50060CA8B /* Fonts */,
 				EBC048D11D8DED860060CA8B /* Units */,
 				EBC0489F1D8DE1570060CA8B /* Tiles */,
@@ -1104,6 +1144,39 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		EBC0490B1D8F35120060CA8B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				EBC049011D8F350D0060CA8B /* btn.wav */,
+				EBC049021D8F350D0060CA8B /* explosion.wav */,
+				EBC049031D8F350D0060CA8B /* Five Armies.mp3 */,
+				EBC049041D8F350D0060CA8B /* hurt.wav */,
+				EBC049051D8F350D0060CA8B /* move.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		EBC049281D8F367F0060CA8B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				EBC0490C1D8F367A0060CA8B /* explosion_1-hd.png */,
+				EBC0490D1D8F367A0060CA8B /* explosion_1.png */,
+				EBC0490E1D8F367A0060CA8B /* explosion_2-hd.png */,
+				EBC0490F1D8F367A0060CA8B /* explosion_2.png */,
+				EBC049101D8F367A0060CA8B /* explosion_3-hd.png */,
+				EBC049111D8F367A0060CA8B /* explosion_3.png */,
+				EBC049121D8F367A0060CA8B /* explosion_4-hd.png */,
+				EBC049131D8F367A0060CA8B /* explosion_4.png */,
+				EBC049141D8F367A0060CA8B /* explosion_5-hd.png */,
+				EBC049151D8F367A0060CA8B /* explosion_5.png */,
+				EBC049161D8F367A0060CA8B /* explosion_6-hd.png */,
+				EBC049171D8F367A0060CA8B /* explosion_6.png */,
+				EBC049181D8F367A0060CA8B /* explosion_7-hd.png */,
+				EBC049191D8F367A0060CA8B /* explosion_7.png */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1162,7 +1235,9 @@
 				EBC046DF1D8DDB740060CA8B /* Icon-Small.png in Resources */,
 				EBC048C21D8DED7D0060CA8B /* Cannon_P1.png in Resources */,
 				EBC046D31D8DDB740060CA8B /* Default-Landscape~ipad.png in Resources */,
+				EBC049231D8F367A0060CA8B /* explosion_5.png in Resources */,
 				EBC048F91D8F189E0060CA8B /* popup_bg-hd.png in Resources */,
+				EBC049211D8F367A0060CA8B /* explosion_4.png in Resources */,
 				EBC046E31D8DDB740060CA8B /* Icon.png in Resources */,
 				EBC048E21D8DED9E0060CA8B /* Font_dark_size15-hd.fnt in Resources */,
 				EBC048871D8DE13E0060CA8B /* water_02.png in Resources */,
@@ -1174,12 +1249,15 @@
 				EBC048801D8DE13E0060CA8B /* mountain@2x.png in Resources */,
 				EBC048961D8DE13E0060CA8B /* water_09@2x.png in Resources */,
 				EBC048CB1D8DED7D0060CA8B /* Soldier_P2-hd.png in Resources */,
+				EBC0491C1D8F367A0060CA8B /* explosion_2-hd.png in Resources */,
+				EBC0490A1D8F350D0060CA8B /* move.wav in Resources */,
 				EBC048831D8DE13E0060CA8B /* trees.png in Resources */,
 				EBC048E91D8DED9E0060CA8B /* Font_silver_size17.png in Resources */,
 				EBC0488C1D8DE13E0060CA8B /* water_04@2x.png in Resources */,
 				EBC048C31D8DED7D0060CA8B /* Cannon_P2-hd.png in Resources */,
 				EBC048FE1D8F189E0060CA8B /* uiBar.png in Resources */,
 				EBC048C11D8DED7D0060CA8B /* Cannon_P1-hd.png in Resources */,
+				EBC049271D8F367A0060CA8B /* explosion_7.png in Resources */,
 				EBC048D01D8DED7D0060CA8B /* Tank_P2.png in Resources */,
 				EBC046E51D8DDB740060CA8B /* Icon@2x.png in Resources */,
 				EBC048DF1D8DED9E0060CA8B /* Font_dark_size12-hd.png in Resources */,
@@ -1187,8 +1265,10 @@
 				EBC046D11D8DDB740060CA8B /* Default.png in Resources */,
 				EBC048851D8DE13E0060CA8B /* water_01.png in Resources */,
 				EBC048971D8DE13E0060CA8B /* water_10.png in Resources */,
+				EBC049201D8F367A0060CA8B /* explosion_4-hd.png in Resources */,
 				EBC0488E1D8DE13E0060CA8B /* water_05@2x.png in Resources */,
 				EBC0489C1D8DE13E0060CA8B /* water_12@2x.png in Resources */,
+				EBC0491D1D8F367A0060CA8B /* explosion_2.png in Resources */,
 				EBC048981D8DE13E0060CA8B /* water_10@2x.png in Resources */,
 				EBC048CC1D8DED7D0060CA8B /* Soldier_P2.png in Resources */,
 				EBC048E71D8DED9E0060CA8B /* Font_silver_size17-hd.png in Resources */,
@@ -1197,11 +1277,14 @@
 				EBC048941D8DE13E0060CA8B /* water_08@2x.png in Resources */,
 				EBC048E61D8DED9E0060CA8B /* Font_silver_size17-hd.fnt in Resources */,
 				EBC048951D8DE13E0060CA8B /* water_09.png in Resources */,
+				EBC0491B1D8F367A0060CA8B /* explosion_1.png in Resources */,
 				EBC048E51D8DED9E0060CA8B /* Font_dark_size15.png in Resources */,
 				EBC048E31D8DED9E0060CA8B /* Font_dark_size15-hd.png in Resources */,
+				EBC049081D8F350D0060CA8B /* Five Armies.mp3 in Resources */,
 				EBC049001D8F189E0060CA8B /* victory_bck.png in Resources */,
 				EBC048811D8DE13E0060CA8B /* TileLayer_background-hd.png in Resources */,
 				EBC048C61D8DED7D0060CA8B /* Helicopter_P1.png in Resources */,
+				EBC049061D8F350D0060CA8B /* btn.wav in Resources */,
 				EBC0488B1D8DE13E0060CA8B /* water_04.png in Resources */,
 				EBC0489A1D8DE13E0060CA8B /* water_11@2x.png in Resources */,
 				EBC048931D8DE13E0060CA8B /* water_08.png in Resources */,
@@ -1209,6 +1292,7 @@
 				EBC046E81D8DDB740060CA8B /* iTunesArtwork in Resources */,
 				EBC048FC1D8F189E0060CA8B /* uiBar_button.png in Resources */,
 				EBC048C71D8DED7D0060CA8B /* Helicopter_P2-hd.png in Resources */,
+				EBC0491A1D8F367A0060CA8B /* explosion_1-hd.png in Resources */,
 				EBC048C51D8DED7D0060CA8B /* Helicopter_P1-hd.png in Resources */,
 				EBC048261D8DDB750060CA8B /* ChangeLog in Resources */,
 				EBC048991D8DE13E0060CA8B /* water_11.png in Resources */,
@@ -1220,6 +1304,7 @@
 				EBC048FF1D8F189E0060CA8B /* victory_bck-hd.png in Resources */,
 				EBC048E01D8DED9E0060CA8B /* Font_dark_size12.fnt in Resources */,
 				EBC048E41D8DED9E0060CA8B /* Font_dark_size15.fnt in Resources */,
+				EBC049241D8F367A0060CA8B /* explosion_6-hd.png in Resources */,
 				EBC046D91D8DDB740060CA8B /* fps_images-ipadhd.png in Resources */,
 				EBC046D51D8DDB740060CA8B /* fps_images.png in Resources */,
 				EBC0489B1D8DE13E0060CA8B /* water_12.png in Resources */,
@@ -1230,17 +1315,24 @@
 				EBC048CE1D8DED7D0060CA8B /* Tank_P1.png in Resources */,
 				EBC0487F1D8DE13E0060CA8B /* mountain.png in Resources */,
 				EBC0489D1D8DE13E0060CA8B /* water_13.png in Resources */,
+				EBC049091D8F350D0060CA8B /* hurt.wav in Resources */,
 				EBC0487D1D8DE13E0060CA8B /* grass.png in Resources */,
 				EBC046D71D8DDB740060CA8B /* fps_images-hd.png in Resources */,
 				EBC046DB1D8DDB740060CA8B /* Icon-72.png in Resources */,
 				EBC0488F1D8DE13E0060CA8B /* water_06.png in Resources */,
 				EBC048821D8DE13E0060CA8B /* TileLayer_background.png in Resources */,
 				EBC0487E1D8DE13E0060CA8B /* grass@2x.png in Resources */,
+				EBC0491F1D8F367A0060CA8B /* explosion_3.png in Resources */,
 				EBC048E81D8DED9E0060CA8B /* Font_silver_size17.fnt in Resources */,
 				EBC048891D8DE13E0060CA8B /* water_03.png in Resources */,
 				EBC048861D8DE13E0060CA8B /* water_01@2x.png in Resources */,
+				EBC049071D8F350D0060CA8B /* explosion.wav in Resources */,
+				EBC049251D8F367A0060CA8B /* explosion_6.png in Resources */,
 				EBC048591D8DE0B10060CA8B /* StageMap-hd.tmx in Resources */,
+				EBC049221D8F367A0060CA8B /* explosion_5-hd.png in Resources */,
 				EBC048CA1D8DED7D0060CA8B /* Soldier_P1.png in Resources */,
+				EBC0491E1D8F367A0060CA8B /* explosion_3-hd.png in Resources */,
+				EBC049261D8F367A0060CA8B /* explosion_7-hd.png in Resources */,
 				EBC048841D8DE13E0060CA8B /* trees@2x.png in Resources */,
 				EBC048C81D8DED7D0060CA8B /* Helicopter_P2.png in Resources */,
 				EBC048FA1D8F189E0060CA8B /* popup_bg.png in Resources */,

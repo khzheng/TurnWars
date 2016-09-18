@@ -46,5 +46,9 @@
 - (void)doMarkedMovement:(TileData *)targetTileData;
 - (void)startTurn;
 - (void)unMarkPossibleAttack;
+- (void)doMarkedAttack:(TileData *)targetTileData;
+- (void)attackedBy:(Unit *)attacker firstAttack:(BOOL)firstAttack;
+- (void)dealDamage:(NSMutableDictionary *)damageData;
+- (void)removeExplosion:(CCSprite *)e;
 
 @end

@@ -9,8 +9,11 @@
 #import "HelloWorldLayer.h"
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "Unit.h"
 #import "TileData.h"
+#import "Unit_Soldier.h"
+#import "Unit_Tank.h"
+#import "Unit_Cannon.h"
+#import "Unit_Helicopter.h"
 
 @interface HelloWorldLayer()
 
@@ -120,9 +123,25 @@
         // Why do i check if the other unit in tile is the selected unit?
         if ((tileData.selectedForMovement && ![self otherUnitInTile:tileData]) || ([self otherUnitInTile:tileData] == self.selectedUnit)) {
             [self.selectedUnit doMarkedMovement:tileData];
+        } else if (tileData.selectedForAttack) {
+            // Attack the specified tile
+            [self.selectedUnit doMarkedAttack:tileData];
+            // Deselect the unit
+            [self unselectUnit];
+        } else {
+            // Tapped a non-marked tile. What do we do?
+            if (self.selectedUnit.selectingAttack) {
+                // Was in the process of attacking - cancel attack and show menu
+                self.selectedUnit.selectingAttack = NO;
+                [self unPaintAttackTiles];
+                [self showActionsMenu:self.selectedUnit canAttack:YES];
+            } else if (self.selectedUnit.selectingMovement) {
+                // Was in the process of moving - just remove marked tiles and await further action
+                self.selectedUnit.selectingMovement = NO;
+                [self.selectedUnit unMarkPossibleMovement];
+                [self unselectUnit];
+            }
         }
-        
-        // handle attacks here
     }
 }
 
@@ -409,6 +428,53 @@
 -(void)unPaintAttackTile:(TileData *)tileData {
     CCSprite * tile = [self.bgLayer tileAt:tileData.tilePosition];
     [tile setColor:ccWHITE];
+}
+
+// Calculate the damage inflicted when one unit attacks another based on the unit type
+- (int)calculateDamageFrom:(Unit *)attacker onDefender:(Unit *)defender {
+    if ([attacker isKindOfClass:[Unit_Soldier class]]) {
+        if ([defender isKindOfClass:[Unit_Soldier class]]) {
+            return 5;
+        } else if ([defender isKindOfClass:[Unit_Helicopter class]]) {
+            return 1;
+        } else if ([defender isKindOfClass:[Unit_Tank class]]) {
+            return 2;
+        } else if ([defender isKindOfClass:[Unit_Cannon class]]) {
+            return 4;
+        }
+    } else if ([attacker isKindOfClass:[Unit_Tank class]]) {
+        if ([defender isKindOfClass:[Unit_Soldier class]]) {
+            return 6;
+        } else if ([defender isKindOfClass:[Unit_Helicopter class]]) {
+            return 3;
+        } else if ([defender isKindOfClass:[Unit_Tank class]]) {
+            return 5;
+        } else if ([defender isKindOfClass:[Unit_Cannon class]]) {
+            return 8;
+        }
+    } else if ([attacker isKindOfClass:[Unit_Helicopter class]]) {
+        if ([defender isKindOfClass:[Unit_Soldier class]]) {
+            return 7;
+        } else if ([defender isKindOfClass:[Unit_Helicopter class]]) {
+            return 4;
+        } else if ([defender isKindOfClass:[Unit_Tank class]]) {
+            return 7;
+        } else if ([defender isKindOfClass:[Unit_Cannon class]]) {
+            return 3;
+        }
+    } else if ([attacker isKindOfClass:[Unit_Cannon class]]) {
+        if ([defender isKindOfClass:[Unit_Soldier class]]) {
+            return 6;
+        } else if ([defender isKindOfClass:[Unit_Helicopter class]]) {
+            return 0;
+        } else if ([defender isKindOfClass:[Unit_Tank class]]) {
+            return 8;
+        } else if ([defender isKindOfClass:[Unit_Cannon class]]) {
+            return 8;
+        }
+    } else {
+        return 0;
+    }
 }
 
 @end

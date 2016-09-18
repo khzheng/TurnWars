@@ -54,5 +54,6 @@
 - (BOOL)paintAttackTile:(TileData *)tData;
 - (void)unPaintAttackTiles;
 - (void)unPaintAttackTile:(TileData *)tileData;
+- (int)calculateDamageFrom:(Unit *)attacker onDefender:(Unit *)defender;
 
 @end
